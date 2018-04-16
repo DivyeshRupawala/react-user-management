@@ -28,7 +28,7 @@ const AddUser = ({userData, onAddUserData=f=>f, onEditUserData=f=>f}) => {
 			onAddUserData(getObject());			
 		}
 		
-		window.location = "#/userDataList"		
+		window.location = "#/userList"		
 	}
 
 	const getObject = () => {
@@ -52,7 +52,7 @@ const AddUser = ({userData, onAddUserData=f=>f, onEditUserData=f=>f}) => {
 	}
 
 	return (	
-		<PanelWithHeader title="Add User Data">
+		<PanelWithHeader title="Add User">
 		  	<InputWithLabel label="User ID" type="number" id={USER_ID} defaultVal={_userId} onChangeValue={onChangeValue}/>
 	    	<InputWithLabel label="Title" type="text" id={TITLE_ID} defaultVal={_title} onChangeValue={onChangeValue}/>
 	    	<InputWithLabel label="Body" type="text" id={BODY_ID} defaultVal={_body} onChangeValue={onChangeValue}/>	    	

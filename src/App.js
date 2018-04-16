@@ -9,22 +9,16 @@ class App extends Component {
      
     return (
      <div className="App">
-        <ModalPopup 
-            title="Success" 
-            body="Record has beed added successfully." 
-            okButtonName="Ok" 
-            closeButtonName="Cancel" 
-            isShow={true} />        
+        <ModalPopup />
+
         <Header />
-
-        {/* Routing Section Changing every time*/}
-        <div className="center-panel">          
-          <center>
-            <Clock />
-            {this.props.children}
-          </center>
-        </div>       
-
+          {/* Routing Section Changing every time*/}
+          <div className="center-panel">          
+            <center>
+              <Clock />
+              {this.props.children}
+            </center>
+          </div>
         <Footer />        
       </div>
     );

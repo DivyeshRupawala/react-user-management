@@ -1,37 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
-
-// Reducer
-import { combineReducers } from 'redux'
-//import userData from './user-list/user-list-reducer'
-import userData from './add-user/add-user-reducer'
-
-//Sagas
-import { takeEvery } from 'redux-saga/effects'
-import C from './add-user/add-user-constants'
-import { addUserData, editUserData } from './add-user/add-user-sagas'
-
-// Modal Popup Reducer
-import modalPopup from './share/components/modal-popup/modal-popup-reducer'
-
-
 import './index.css';
-import Routes from './config/routes'
+
+import appReducer from './index-reducer'
+import mySaga from './index-sagas'
+import Routes from './Routes'
+
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware} from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
-
-// Combine Reducer
-const appReducer =  combineReducers({ 
-						  userData,
-						  modalPopup
-						});
-
-function* mySaga() {  
-  yield takeEvery(C.ADD_USER_DATA, addUserData)
-  yield takeEvery(C.EDIT_USER_DATA, editUserData)
-}
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();

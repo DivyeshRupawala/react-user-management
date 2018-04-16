@@ -4,6 +4,7 @@ import PanelWithHeader from '../share/components/PanelWithHeader'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import { removeUserData } from './user-list-actions'
+import UserListTableHeader from './UserListTableHeader'
 
 const UserList = ({userDataList, onRemoveUser=f=>f}) => {
 
@@ -12,32 +13,29 @@ const UserList = ({userDataList, onRemoveUser=f=>f}) => {
 	const removeUser = (id) => {		
 		onRemoveUser(id);		
 	}
+
+	const eachRow = (data, i) => {
+		return (
+			<tr key={i}>
+			      <td>{data.userId}</td>
+			      <td>{data.title}</td>
+			      <td>{data.body}</td>						      
+			      <td> 
+			      <a onClick={() => removeUser(data.id)}>Remove </a>
+			      	   <a href={'#addUser/'+data.id}>Edit </a>
+			      </td>
+			  </tr>
+		)
+	}
 	
 	return(
 		(userData.length > 0 ?
 					(<PanelWithHeader title="User List">
 					    	 <table>
-							  <thead>
-							  <tr>
-							     <th>User Id</th>
-							     <th>Title</th>
-							     <th>Body</th>
-							     <th>Action</th>
-							  </tr>
-							  </thead>
+							  	<UserListTableHeader/>
 							  <tbody>
-								  {userData.map((data, i) =>
-					                    <tr key={i}>
-									      <td>{data.userId}</td>
-									      <td>{data.title}</td>
-									      <td>{data.body}</td>						      
-									      <td> <a onClick={() => removeUser(data.id)}>Remove </a>
-									      	   <a href={'#addUserData/'+data.id}>Edit </a>
-									      </td>
-									  </tr>)
-								  }					 
-							  </tbody>
-							  
+								  {userData.map(eachRow)}								  			 
+							  </tbody>							  
 							</table>
 					</PanelWithHeader>)
 					:
