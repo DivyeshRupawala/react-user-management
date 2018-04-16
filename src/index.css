@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 28px;
+  float: left;
+}
+
+.App-header {
+    background-color: #222;
+    height: 35px;
+    padding: 5px;
+    color: white;
+}
+
+.menu-panel {
+  float: right;
+  margin-top: 3px;
+}
+
+.menu-panel a {
+  color: white;
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #222;
+  height: 28px;
+  padding: 5px;
+  color: white;
+  width: 100%;
+}
+
+.center-panel {
+  margin: 20px;
+}
+
+.center-panel label{
+  width : 100px;
+  text-align: left;
+}
+
+.center-panel table{
+  width: 100%;
+}
+
+.center-panel th,td{
+  padding: 5px;
+  text-align: center;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
