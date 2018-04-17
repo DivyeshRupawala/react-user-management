@@ -9,9 +9,9 @@ import UserListTableHeader from './UserListTableHeader'
 const UserList = ({userDataList, onRemoveUser=f=>f}) => {
 
 	const userData = userDataList;
-	
-	const removeUser = (id) => {		
-		onRemoveUser(id);		
+
+	const removeUser = (id) => {
+		onRemoveUser(id);
 	}
 
 	const eachRow = (data, i) => {
@@ -19,23 +19,23 @@ const UserList = ({userDataList, onRemoveUser=f=>f}) => {
 			<tr key={i}>
 			      <td>{data.userId}</td>
 			      <td>{data.title}</td>
-			      <td>{data.body}</td>						      
-			      <td> 
+			      <td>{data.body}</td>
+			      <td>
 			      <a onClick={() => removeUser(data.id)}>Remove </a>
 			      	   <a href={'#addUser/'+data.id}>Edit </a>
 			      </td>
 			  </tr>
 		)
 	}
-	
+
 	return(
 		(userData.length > 0 ?
 					(<PanelWithHeader title="User List">
 					    	 <table>
 							  	<UserListTableHeader/>
 							  <tbody>
-								  {userData.map(eachRow)}								  			 
-							  </tbody>							  
+								  {userData.map(eachRow)}
+							  </tbody>
 							</table>
 					</PanelWithHeader>)
 					:
@@ -43,25 +43,22 @@ const UserList = ({userDataList, onRemoveUser=f=>f}) => {
 		)
 	)
 }
-	
-const mapStateToProps = (state, props) => 
+
+const mapStateToProps = (state, props) =>
 	({
 		userDataList : state.userData.list
 	})
 
-const mapDispatchToProps = (dispatch) => 
+const mapDispatchToProps = (dispatch) =>
 	({
 		onRemoveUser(id) {
 			dispatch(
 				removeUserData(id)
 			)
 		}
-		
-	})	
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(UserList)	
+	})
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(UserList)
 
 export default withRouter(Container)
-
-
-	

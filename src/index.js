@@ -18,21 +18,22 @@ const initialState = {
 	"userData" : {
 		fetching : false,
 		list : [
-			{	
+			{
 				"id": 1,
-			    "userId": 1,		    
+			    "userId": 1,
 			    "title": "Welcome Title",
 			    "body": "Welcome body"
 			}
 		]
-	},	
+	},
 	"modalPopup" : {
-		title: "Title", 
+		title: "Title",
         body:"Body",
-        okButtonName : "Ok", 
-        closeButtonName : "Cancel", 
+        okButtonName : "Ok",
+        closeButtonName : "Cancel",
         isShow : false
-	}
+	},
+	"githubUsers" : []
 };
 
 const store = createStore(appReducer, initialState, applyMiddleware(sagaMiddleware));
