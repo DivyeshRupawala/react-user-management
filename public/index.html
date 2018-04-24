@@ -14,6 +14,54 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossOrigin="anonymous" />
 
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+    
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDaD19wpvX0yY5n6vuEhIFejAh8HJOfI8Q",
+        authDomain: "react-api-acfae.firebaseapp.com",
+        databaseURL: "https://react-api-acfae.firebaseio.com",
+        projectId: "react-api-acfae",
+        storageBucket: "react-api-acfae.appspot.com",
+        messagingSenderId: "638277029149"
+      };
+      firebase.initializeApp(config);
+
+      // firebase.initializeApp({
+      // apiKey: '### FIREBASE API KEY ###',
+      //   authDomain: '### FIREBASE AUTH DOMAIN ###',
+      //   projectId: '### CLOUD FIRESTORE PROJECT ID ###'
+      // });
+
+      // Initialize Cloud Firestore through Firebase
+      var db = firebase.firestore();
+
+        // db.collection("users").add({
+        //     dob : '16-12-1988',
+        //     email: 'divyesh.rupawala@sapient.com',
+        //     firstName: 'Divyesh',
+        //     lastName: 'Rupawala',
+        //     mobileNumber : '9974746674',
+        //     sex : 'Male'
+        // })
+        // .then(function(docRef) {
+        //     console.log("Document written with ID: ", docRef.id);
+        // })
+        // .catch(function(error) {
+        //     console.error("Error adding document: ", error);
+        // });
+
+      db.collection("users").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              console.log(doc.data());
+          });
+      });
+    </script>
+
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
