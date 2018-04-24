@@ -44,10 +44,12 @@ const UserList = ({userDataList, onRemoveUser=f=>f}) => {
 	)
 }
 
-const mapStateToProps = (state, props) =>
-	({
+const mapStateToProps = (state, props) =>{
+	console.log("UserList.........")
+	return {
 		userDataList : state.userData.list
-	})
+	}
+}
 
 const mapDispatchToProps = (dispatch) =>
 	({

@@ -32,10 +32,12 @@ class GithubUsers extends Component {
   }
 }
 
-const mapStateToProps = (state, props) =>
-	({
+const mapStateToProps = (state, props) => {
+  console.log("GithubUsers.........")
+  return {
 		githubUsers : state.githubUsers
-	})
+	}
+}
 
 const mapDispatchToProps = (dispatch) =>
 	({

@@ -12,10 +12,13 @@ const UserCountBadge = ({userDataList}) => {
   )
 }
 
-const mapStateToProps = (state, props) =>
-	({
+const mapStateToProps = (state, props) => {
+  console.log("UserCountBadge.........")
+  return {
 		userDataList : state.userData.list
-	})
+	}
+}
+
 
 const Container = connect(mapStateToProps)(UserCountBadge)
 
